@@ -6,38 +6,53 @@ Este projeto foi construído com Node.js e Express, seguindo uma arquitetura div
 
 ## Tabela de Conteúdos
 
--   [Funcionalidades](#funcionalidades)
--   [Tecnologias Utilizadas](#tecnologias-utilizadas)
--   [Pré-requisitos](#pré-requisitos)
--   [Instalação](#instalação)
--   [Como Executar](#como-executar)
--   [Endpoints da API](#endpoints-da-api)
--   [Estrutura do Projeto](#estrutura-do-projeto)
--   [Licença](#licença)
+* [Funcionalidades](#funcionalidades)
+* [Tecnologias Utilizadas](#tecnologias-utilizadas)
+* [Pré-requisitos](#pré-requisitos)
+* [Configuração de Ambiente](#configuração-de-ambiente)
+* [Instalação](#instalação)
+* [Como Executar](#como-executar)
+* [Endpoints da API](#endpoints-da-api)
+* [Estrutura do Projeto](#estrutura-do-projeto)
 
 ## Funcionalidades
 
--   ✅ **CRUD Completo** para Receitas (Criar, Ler, Atualizar, Deletar).
--   💾 **Armazenamento de Dados** em um arquivo `recipes.json` local.
--   🔢 **IDs Numéricos Autoincrementais** para novas receitas.
--   📄 **Documentação Interativa** com Swagger UI para fácil visualização e teste dos endpoints.
--   🏗️ **Arquitetura em Camadas** (Rotas, Controladores, Serviços) para separação de responsabilidades.
--    CORS habilitado para permitir requisições de um frontend.
+* ✅ **CRUD Completo** para Receitas (Criar, Ler, Atualizar, Deletar).
+* 💾 **Armazenamento de Dados** em um arquivo `recipes.json` local.
+* 🔢 **IDs Numéricos Autoincrementais** para novas receitas.
+* 📄 **Documentação Interativa** com Swagger UI para fácil visualização e teste dos endpoints.
+* 🏗️ **Arquitetura em Camadas** (Rotas, Controladores, Serviços) para separação de responsabilidades.
+* CORS habilitado para permitir requisições de um frontend.
 
 ## Tecnologias Utilizadas
 
--   [Node.js](https://nodejs.org/) - Ambiente de execução JavaScript.
--   [Express.js](https://expressjs.com/pt-br/) - Framework para construção da API.
--   [Nodemon](https://nodemon.io/) - Para reiniciar o servidor automaticamente em ambiente de desenvolvimento.
--   [Swagger UI Express](https://www.npmjs.com/package/swagger-ui-express) & [Swagger JSDoc](https://www.npmjs.com/package/swagger-jsdoc) - Para geração da documentação da API.
--   [CORS](https://www.npmjs.com/package/cors) - Para habilitar o Cross-Origin Resource Sharing.
+* [Node.js](https://nodejs.org/) - Ambiente de execução JavaScript.
+* [Express.js](https://expressjs.com/pt-br/) - Framework para construção da API.
+* [Nodemon](https://nodemon.io/) - Para reiniciar o servidor automaticamente em ambiente de desenvolvimento.
+* [dotenv](https://www.npmjs.com/package/dotenv) - Para carregar variáveis de ambiente a partir de um arquivo `.env`.
+* [Swagger UI Express](https://www.npmjs.com/package/swagger-ui-express) & [Swagger JSDoc](https://www.npmjs.com/package/swagger-jsdoc) - Para geração da documentação da API.
+* [CORS](https://www.npmjs.com/package/cors) - Para habilitar o Cross-Origin Resource Sharing.
 
 ## Pré-requisitos
 
 Antes de começar, você vai precisar ter as seguintes ferramentas instaladas em sua máquina:
--   [Node.js](https://nodejs.org/en/download/) (versão 18.x ou superior é recomendada)
--   [NPM](https://www.npmjs.com/) (geralmente instalado junto com o Node.js)
--   [Git](https://git-scm.com/) (para clonar o repositório)
+* [Node.js](https://nodejs.org/en/download/) (versão 18.x ou superior é recomendada)
+* [NPM](https://www.npmjs.com/) (geralmente instalado junto com o Node.js)
+* [Git](https://git-scm.com/) (para clonar o repositório)
+
+## Configuração de Ambiente
+
+Este projeto utiliza variáveis de ambiente para configurações sensíveis ou que podem variar entre ambientes (desenvolvimento, produção).
+
+1.  Crie um arquivo chamado `.env` na raiz do projeto.
+2.  Copie o conteúdo do exemplo abaixo para o seu arquivo `.env`:
+
+    ```ini
+    # Porta em que o servidor será executado
+    PORT=3001
+    ```
+
+O servidor usará a `PORT` definida neste arquivo. Se o arquivo não existir, ele usará um valor padrão (3001, conforme definido no código).
 
 ## Instalação
 
@@ -53,7 +68,7 @@ Siga os passos abaixo para configurar o ambiente de desenvolvimento:
     cd recipe-api
     ```
 
-3.  Instale as dependências:
+3.  Instale as dependências (incluindo `dotenv`):
     ```bash
     npm install
     ```
@@ -112,7 +127,8 @@ recipe-api/
 │   ├── routes/
 │   │   └── recipe.routes.js   # Define os endpoints da API
 │   └── index.js          # Ponto de entrada da aplicação Express
+├── .env                  # Arquivo para variáveis de ambiente (local)
+├── .gitignore
 ├── node_modules/
 ├── package.json
 └── README.md
-```
